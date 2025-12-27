@@ -47,13 +47,25 @@ class grid:
                 if col_value == " ":
                     self.grid[letra+num]["value"] = CAMINO
 
+        self.cargar_distancias()
+
     def cambiar_inicio(self, id_inicio):
         inicio_letra = posiciones_iniciales_extra[id_inicio]
 
         pos = self.grid[inicio_letra]
 
         if pos:
-            self.grid[inicio_letra] = 
+            self.grid[inicio_letra]["value"] = AVATAR
+        
+        self.grid[self.inicio_default]["value"] = CAMINO
+
+        self.cargar_distancias()
+
+    def cargar_distancias(self):
+        """
+        Coge el grid y carga las h con distancia manhattan
+        """
+        pass
 
 
         
