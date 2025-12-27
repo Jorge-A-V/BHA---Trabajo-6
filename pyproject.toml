@@ -1,0 +1,7 @@
+[project]
+name = "rta-lrta"
+version = "0.1.0"
+description = "Trabajo 6"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
