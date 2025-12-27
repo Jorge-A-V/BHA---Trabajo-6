@@ -1,3 +1,5 @@
+from .heuristicos import distancia_manhattan
+
 PARED = "w"
 AVATAR = "A"
 SOLUCION = "X"
@@ -22,6 +24,7 @@ class grid:
 
         self.grid = {}
         self.inicio_default = None
+        self.inicio = None
 
         rows = example.split("\n")
 
@@ -42,6 +45,7 @@ class grid:
                 if col_value == AVATAR:
                     self.grid[letra+num]["value"] = AVATAR
                     self.inicio_default = letra+num
+                    self.inicio = letra+num
                 if col_value == SOLUCION:
                     self.grid[letra+num]["value"] = SOLUCION
                 if col_value == " ":
@@ -58,6 +62,7 @@ class grid:
             self.grid[inicio_letra]["value"] = AVATAR
         
         self.grid[self.inicio_default]["value"] = CAMINO
+        self.inicio = inicio_letra
 
         self.cargar_distancias()
 
@@ -65,8 +70,13 @@ class grid:
         """
         Coge el grid y carga las h con distancia manhattan
         """
-        pass
-
+        for punto, propiedades in self.grid.elems():
+            if propiedades["value"] == AVATAR:
+                self.grid[punto]["h"] = 0
+            else:
+                self.grid[punto]["h"] = distancia_manhattan(
+                   propiedades["pos"], self.grid[self.inicio]
+                )
 
         
 
