@@ -42,6 +42,7 @@ class RTA:
         return siguiente_nodo
 
     def fn(self, vecino_h):
-        return self.gn + 1 + vecino_h
+        c_vecino = 1 # Enunciado
+        return c_vecino + vecino_h
 
 
