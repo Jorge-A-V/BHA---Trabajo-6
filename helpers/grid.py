@@ -8,6 +8,7 @@ CAMINO = "C"
 posiciones_iniciales_extra = ['2F', '1I', '5H', '5L', '1K', '4B', '3H', '3I', '5C', '5B']
 
 letras = "ABCDEFGHIJKLM"
+mapa_letras = {letra: idx for idx, letra in enumerate(letras)}
 numeros = numeros = ['0','1','2','3','4','5','6']
 
 class grid:
@@ -67,10 +68,34 @@ class grid:
         if pos:
             self.grid[inicio_letra]["value"] = AVATAR
         
-        self.grid[self.inicio_default]["value"] = CAMINO
+
+        self.grid[self.inicio]["value"] = CAMINO
         self.inicio = inicio_letra
 
         self.cargar_distancias()
+
+    def cambiar_inicio_sin_cargar_dist(self, id_inicio):
+        inicio_letra = posiciones_iniciales_extra[id_inicio]
+
+        pos = self.grid.get(inicio_letra)
+
+        if pos:
+            self.grid[inicio_letra]["value"] = AVATAR
+        if not pos:
+            # Equivale a nuevo inicio era antes un muro
+            pos_nueva = self._letra_a_pos(inicio_letra)
+            self.grid[inicio_letra] = {
+                        "h": distancia_manhattan(
+                            pos_nueva, self.grid[self.objetivo]["pos"]
+                        ),
+                        "pos": pos_nueva,
+                        "value": AVATAR,              
+            }
+
+        
+        self.grid[self.inicio]["value"] = CAMINO
+        self.inicio = inicio_letra
+
 
     def cargar_distancias(self):
         """
@@ -82,8 +107,7 @@ class grid:
             self.grid[punto]["h"] = distancia_manhattan(
                 propiedades["pos"], self.grid[self.objetivo]["pos"]
             )
-
-        
+ 
     def vecinos(self, letra_id) -> list:
         """
         En orden [Derecha, Abajo, Izquierda, Arriba]
@@ -116,6 +140,16 @@ class grid:
             return None
 
         return letra_id
+
+    def _letra_a_pos(self, letra_id):
+        num = letra_id[0]
+        letra = letra_id[1]
+
+        fila = int(num)
+        col = mapa_letras[letra]
+
+        return [fila, col]
+
 
     def actualizar(self, letra_id, nueva_h):
         self.grid[letra_id]["h"] = nueva_h
