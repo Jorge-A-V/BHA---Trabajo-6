@@ -7,6 +7,9 @@ CAMINO = "C"
 
 posiciones_iniciales_extra = ['2F', '1I', '5H', '5L', '1K', '4B', '3H', '3I', '5C', '5B']
 
+letras = "ABCDEFGHIJKLM"
+numeros = numeros = ['0','1','2','3','4','5','6']
+
 class grid:
 
     grid_texto = """
@@ -26,9 +29,6 @@ class grid:
         self.inicio = None
 
         rows = self.grid_texto.split("\n")
-
-        letras = rows[1][2:]
-        numeros = ['0','1','2','3','4','5','6']
 
         for i, (row, num) in enumerate(zip(rows[2:], numeros)):  
             
@@ -59,7 +59,7 @@ class grid:
 
     def cambiar_inicio(self, id_inicio):
         inicio_letra = posiciones_iniciales_extra[id_inicio]
-        
+
         pos = self.grid.get(inicio_letra)
 
         if pos:
@@ -83,6 +83,57 @@ class grid:
                 )
 
         
+    def vecinos(self, letra_id) -> list:
+        """
+        En orden [Derecha, Abajo, Izquierda, Arriba]
+        """
+        elemento = self.grid[letra_id]
+
+        pos_x, pos_y = elemento["pos"]
+        
+        posibles_vecinos = [
+            self._pos_a_letra([pos_x + 1, pos_y]),
+            self._pos_a_letra([pos_x, pos_y - 1]),
+            self._pos_a_letra([pos_x - 1, pos_y]),
+            self._pos_a_letra([pos_x, pos_y + 1]),
+            
+        ]
+
+        return [
+            pv for pv in posibles_vecinos if pv is not None
+        ]
+
+    def _pos_a_letra(self, pos: list) -> str | None:
+        pos_x, pos_y = pos
+
+        if pos_x < 0 or pos_y < 0:
+            return None
+
+        letra_id = numeros[pos_x]+letras[pos_y]
+
+        if self.grid.get(letra_id) is None:
+            return None
+
+        return letra_id
+
+    def actualizar(self, letra_id, nueva_h):
+        self.grid[letra_id]["h"] = nueva_h
+
+    def get(self, letra_id):
+        return self.grid.get(letra_id)
+
+    def h(self, letra_id):
+        return self.get(letra_id)["h"]
+    
+    def pos(self, letra_id):
+        return self.get(letra_id)["pos"]
+
+    def valor(self, letra_id):
+        return self.get(letra_id)["value"]
+
+    def es_solucion(self, letra_id):
+        return self.valor(letra_id) == SOLUCION
+            
 
 
     
