@@ -27,6 +27,7 @@ class grid:
         self.grid = {}
         self.inicio_default = None
         self.inicio = None
+        self.objetivo = None
 
         rows = self.grid_texto.split("\n")
 
@@ -52,6 +53,7 @@ class grid:
                     self.inicio = letra_id
                 if col_value == SOLUCION:
                     self.grid[letra_id]["value"] = SOLUCION
+                    self.objetivo = letra_id
                 if col_value == " ":
                     self.grid[letra_id]["value"] = CAMINO
 
@@ -73,14 +75,13 @@ class grid:
     def cargar_distancias(self):
         """
         Coge el grid y carga las h con distancia manhattan
+
+        manhattan a X
         """
         for punto, propiedades in self.grid.items():
-            if propiedades["value"] == AVATAR:
-                self.grid[punto]["h"] = 0
-            else:
-                self.grid[punto]["h"] = distancia_manhattan(
-                   propiedades["pos"], self.grid[self.inicio]["pos"]
-                )
+            self.grid[punto]["h"] = distancia_manhattan(
+                propiedades["pos"], self.grid[self.objetivo]["pos"]
+            )
 
         
     def vecinos(self, letra_id) -> list:
