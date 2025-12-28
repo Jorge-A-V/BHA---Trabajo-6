@@ -11,4 +11,4 @@ if __name__ == "__main__":
 
     algo.run()
 
-    print(algo.vars())
+    print(f"traza: {algo.traza}")

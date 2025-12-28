@@ -14,7 +14,7 @@ class RTA:
 
         while nodo:
             nodo = self.step(nodo)
-            if self.grid.get.es_solucion(nodo):
+            if self.grid.es_solucion(nodo):
                 break
         
         self.nodo_final = nodo
