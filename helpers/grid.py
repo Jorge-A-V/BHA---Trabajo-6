@@ -63,6 +63,9 @@ class grid:
     def cambiar_inicio(self, id_inicio):
         inicio_letra = posiciones_iniciales_extra[id_inicio]
 
+        if inicio_letra == self.objetivo:
+            raise ValueError("Inicio = Objetivo")
+
         pos = self.grid.get(inicio_letra)
 
         if pos:
@@ -76,6 +79,9 @@ class grid:
 
     def cambiar_inicio_sin_cargar_dist(self, id_inicio):
         inicio_letra = posiciones_iniciales_extra[id_inicio]
+
+        if inicio_letra == self.objetivo:
+            raise ValueError("Inicio = Objetivo")
 
         pos = self.grid.get(inicio_letra)
 
