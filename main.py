@@ -1,11 +1,14 @@
 
 from helpers.grid import grid
+from algoritmos.rta import RTA
 
 if __name__ == "__main__":
     grid_inicial = grid()
 
     print(grid_inicial.grid)
 
-    grid_inicial.cambiar_inicio(2)
+    algo = RTA(grid_inicial)
 
-    print(grid_inicial.grid)
+    algo.run()
+
+    print(algo.vars())
