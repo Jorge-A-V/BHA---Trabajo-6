@@ -89,13 +89,13 @@ class grid:
         """
         elemento = self.grid[letra_id]
 
-        pos_x, pos_y = elemento["pos"]
+        fila, columna = elemento["pos"]
         
         posibles_vecinos = [
-            self._pos_a_letra([pos_x + 1, pos_y]),
-            self._pos_a_letra([pos_x, pos_y - 1]),
-            self._pos_a_letra([pos_x - 1, pos_y]),
-            self._pos_a_letra([pos_x, pos_y + 1]),
+            self._pos_a_letra([fila, columna + 1]),
+            self._pos_a_letra([fila - 1, columna]),
+            self._pos_a_letra([fila, columna - 1]),
+            self._pos_a_letra([fila + 1, columna]),
             
         ]
 
