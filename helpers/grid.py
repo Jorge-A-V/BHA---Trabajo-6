@@ -94,9 +94,9 @@ class grid:
         
         posibles_vecinos = [
             self._pos_a_letra([fila, columna + 1]),
-            self._pos_a_letra([fila - 1, columna]),
-            self._pos_a_letra([fila, columna - 1]),
             self._pos_a_letra([fila + 1, columna]),
+            self._pos_a_letra([fila, columna - 1]),
+            self._pos_a_letra([fila - 1, columna]),
             
         ]
 
@@ -134,7 +134,3 @@ class grid:
 
     def es_solucion(self, letra_id):
         return self.valor(letra_id) == SOLUCION
-            
-
-
-    

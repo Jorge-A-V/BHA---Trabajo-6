@@ -44,5 +44,3 @@ class RTA:
     def fn(self, vecino_h):
         c_vecino = 1 # Enunciado
         return c_vecino + vecino_h
-
-
