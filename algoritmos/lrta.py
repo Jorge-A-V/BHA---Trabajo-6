@@ -17,7 +17,10 @@ class LRTA(RTA):
         fn_min = fns[pos_vecino_min]
         vecino_id_min = vecinos[pos_vecino_min]
 
-        self.grid.actualizar(id_nodo_actual, fn_min)
+        # mantener monotonia
+        nueva_h = max(fn_min, self.grid.h(id_nodo_actual))
+
+        self.grid.actualizar(id_nodo_actual, nueva_h)
         self.gn += 1
         self.traza.append(id_nodo_actual)
 
