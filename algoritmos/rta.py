@@ -47,6 +47,9 @@ class RTA:
         return c_vecino + vecino_h
 
     def segundo_min(self, array):
+        if len(array) == 1:
+            return 0 # no vecinos, se devuelve a si mismo
+            
         pos_minimo = np.argmin(array)
 
         # mascara con infinito
