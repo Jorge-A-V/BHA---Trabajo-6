@@ -7,7 +7,6 @@ class LRTA(RTA):
         nodo_actual = self.grid.get(id_nodo_actual)
         vecinos = self.grid.vecinos(id_nodo_actual)
 
-        print(vecinos)
         fns = [
             self.fn(self.grid.h(vecino_id)) for vecino_id in vecinos
         ]

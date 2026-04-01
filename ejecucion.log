@@ -1,0 +1,530 @@
+GRID ORIGINAL CON DISTANCIAS
+
+======================================================================
+GRID CON H ACTUAL 
+
+     A    B    C    D    E    F    G    H    I    J    K    L    M    
+   -----------------------------------------------------------------
+0 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+1 | www  12.0 11.0 10.0 www  8.0  7.0  6.0  5.0  4.0  5.0  6.0  www  
+2 | www  www  www  9.0  www  7.0  www  5.0  www  www  www  5.0  www  
+3 | www  10.0 www  8.0  www  6.0  www  4.0  3.0  2.0  www  4.0  www  
+4 | www  9.0  www  7.0  www  www  www  www  www  1.0  www  3.0  www  
+5 | www  8.0  7.0  6.0  5.0  4.0  3.0  2.0  1.0  0.0  www  2.0  www  
+6 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+======================================================================
+
+DATOS EJERCICIO 1 (RTA)
+
+======================================================================
+PASO   | NODO ACTUAL  | H NUEVO  | SIG.NODO     | F SIG.
+----------------------------------------------------------------------
+0      | 3D           | 10.00    | 4D           | 8.00
+1      | 4D           | 11.00    | 5D           | 7.00
+2      | 5D           | 8.00     | 5E           | 6.00
+3      | 5E           | 9.00     | 5F           | 5.00
+4      | 5F           | 10.00    | 5G           | 4.00
+5      | 5G           | 11.00    | 5H           | 3.00
+6      | 5H           | 12.00    | 5I           | 2.00
+7      | 5I           | 13.00    | 5J           | 1.00
+======================================================================
+
+
+======================================================================
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Paso} & \textbf{Nodo Actual} & \textbf{H Nuevo} & \textbf{Sig. Nodo} & \textbf{F Sig.} \\ \hline
+0 & 3D & 10.00 & 4D & 8.00 \\ \hline
+1 & 4D & 11.00 & 5D & 7.00 \\ \hline
+2 & 5D & 8.00 & 5E & 6.00 \\ \hline
+3 & 5E & 9.00 & 5F & 5.00 \\ \hline
+4 & 5F & 10.00 & 5G & 4.00 \\ \hline
+5 & 5G & 11.00 & 5H & 3.00 \\ \hline
+6 & 5H & 12.00 & 5I & 2.00 \\ \hline
+7 & 5I & 13.00 & 5J & 1.00 \\ \hline
+\end{tabular}
+\caption{Traza de ejecución del algoritmo RTA*}
+\label{tab:traza_rta}
+\end{table}
+======================================================================
+
+
+======================================================================
+CAMINO SEGUIDO (TRAZA)
+3D -> 4D -> 5D -> 5E -> 5F -> 5G -> 5H -> 5I -> 5J (META)
+Total de pasos dados: 8
+======================================================================
+
+
+======================================================================
+GRID CON H ACTUAL 
+
+     A    B    C    D    E    F    G    H    I    J    K    L    M    
+   -----------------------------------------------------------------
+0 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+1 | www  12.0 11.0 10.0 www  8.0  7.0  6.0  5.0  4.0  5.0  6.0  www  
+2 | www  www  www  9.0  www  7.0  www  5.0  www  www  www  5.0  www  
+3 | www  10.0 www  10.0 www  6.0  www  4.0  3.0  2.0  www  4.0  www  
+4 | www  9.0  www  11.0 www  www  www  www  www  1.0  www  3.0  www  
+5 | www  8.0  7.0  8.0  9.0  10.0 11.0 12.0 13.0 0.0  www  2.0  www  
+6 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+======================================================================
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w A w . w . . . w . w 
+4 | w . w o w w w w w . w . w 
+5 | w . . o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 1
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o o o o o w 
+2 | w w w . w A w o w w w o w 
+3 | w . w . w o w o o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w o w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 2
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o A . . . w 
+2 | w w w . w o w o w w w . w 
+3 | w . w . w o w o o o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 3
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w o o o w . . . . . . . w 
+2 | w w w o w . w . w w w . w 
+3 | w o w o w . w . . . w . w 
+4 | w o w o w w w w w . w . w 
+5 | w o o o o o o A o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 4
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . o o o o o w 
+2 | w w w . w . w o w w w o w 
+3 | w . w . w . w o o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w A w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 5
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o o o A o w 
+2 | w w w . w o w o w w w o w 
+3 | w . w . w o w o o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w o w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 6
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w o w . w . w . . . w . w 
+4 | w A w . w w w w w . w . w 
+5 | w o o o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 7
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o o o o o w 
+2 | w w w . w o w o w w w o w 
+3 | w . w . w o w A o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w o w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 8
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o . . . . w 
+2 | w w w . w o w o w w w . w 
+3 | w . w . w o w o A o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 9
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w o w . w . w . . . w . w 
+4 | w o w . w w w w w . w . w 
+5 | w o A o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 10
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w o o o w . . . . . . . w 
+2 | w w w o w . w . w w w . w 
+3 | w o w o w . w . . . w . w 
+4 | w o w o w w w w w . w . w 
+5 | w A o o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+======================================================================
+GRID CON H ACTUAL 
+
+     A    B    C    D    E    F    G    H    I    J    K    L    M    
+   -----------------------------------------------------------------
+0 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+1 | www  38.0 39.0 40.0 www  60.0 61.0 56.0 55.0 54.0 53.0 52.0 www  
+2 | www  www  www  41.0 www  59.0 www  57.0 www  www  www  51.0 www  
+3 | www  34.0 www  42.0 www  58.0 www  58.0 59.0 60.0 www  50.0 www  
+4 | www  35.0 www  43.0 www  www  www  www  www  61.0 www  49.0 www  
+5 | www  36.0 37.0 38.0 39.0 40.0 41.0 42.0 43.0 0.0  www  48.0 www  
+6 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+======================================================================
+
+DATOS EJERCICIO 2 (LRTA)
+
+======================================================================
+PASO   | NODO ACTUAL  | H NUEVO  | SIG.NODO     | F SIG.
+----------------------------------------------------------------------
+0      | 3D           | 8.00     | 4D           | 8.00
+1      | 4D           | 7.00     | 5D           | 7.00
+2      | 5D           | 6.00     | 5E           | 6.00
+3      | 5E           | 5.00     | 5F           | 5.00
+4      | 5F           | 4.00     | 5G           | 4.00
+5      | 5G           | 3.00     | 5H           | 3.00
+6      | 5H           | 2.00     | 5I           | 2.00
+7      | 5I           | 1.00     | 5J           | 1.00
+======================================================================
+
+
+======================================================================
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Paso} & \textbf{Nodo Actual} & \textbf{H Nuevo} & \textbf{Sig. Nodo} & \textbf{F Sig.} \\ \hline
+0 & 3D & 8.00 & 4D & 8.00 \\ \hline
+1 & 4D & 7.00 & 5D & 7.00 \\ \hline
+2 & 5D & 6.00 & 5E & 6.00 \\ \hline
+3 & 5E & 5.00 & 5F & 5.00 \\ \hline
+4 & 5F & 4.00 & 5G & 4.00 \\ \hline
+5 & 5G & 3.00 & 5H & 3.00 \\ \hline
+6 & 5H & 2.00 & 5I & 2.00 \\ \hline
+7 & 5I & 1.00 & 5J & 1.00 \\ \hline
+\end{tabular}
+\caption{Traza de ejecución del algoritmo RTA*}
+\label{tab:traza_rta}
+\end{table}
+======================================================================
+
+
+======================================================================
+CAMINO SEGUIDO (TRAZA)
+3D -> 4D -> 5D -> 5E -> 5F -> 5G -> 5H -> 5I -> 5J (META)
+Total de pasos dados: 8
+======================================================================
+
+
+======================================================================
+GRID CON H ACTUAL 
+
+     A    B    C    D    E    F    G    H    I    J    K    L    M    
+   -----------------------------------------------------------------
+0 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+1 | www  12.0 11.0 10.0 www  8.0  7.0  6.0  5.0  4.0  5.0  6.0  www  
+2 | www  www  www  9.0  www  7.0  www  5.0  www  www  www  5.0  www  
+3 | www  10.0 www  8.0  www  6.0  www  4.0  3.0  2.0  www  4.0  www  
+4 | www  9.0  www  7.0  www  www  www  www  www  1.0  www  3.0  www  
+5 | www  8.0  7.0  6.0  5.0  4.0  3.0  2.0  1.0  0.0  www  2.0  www  
+6 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+======================================================================
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w A w . w . . . w . w 
+4 | w . w o w w w w w . w . w 
+5 | w . . o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 1
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w o o o o o o o w 
+2 | w w w . w A w o w w w o w 
+3 | w . w . w o w o o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w o w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 2
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . o A . . . w 
+2 | w w w . w . w o w w w . w 
+3 | w . w . w . w o o o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 3
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w . . . w . w 
+4 | w . w . w w w w w . w . w 
+5 | w . . . . . . A o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 4
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . o o o o o w 
+2 | w w w . w . w o w w w o w 
+3 | w . w . w . w o o o w o w 
+4 | w . w . w w w w w o w o w 
+5 | w . . . . . . . . X w A w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 5
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . o o o A . w 
+2 | w w w . w . w o w w w . w 
+3 | w . w . w . w o o o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 6
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w . . . w . w 
+4 | w A w . w w w w w . w . w 
+5 | w o o o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 7
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w A o o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 8
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w . A o w . w 
+4 | w . w . w w w w w o w . w 
+5 | w . . . . . . . . X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 9
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w . . . w . w 
+4 | w . w . w w w w w . w . w 
+5 | w . A o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+EJECUCCIÓN 10
+
+
+======================================================================
+CAMINO
+     A B C D E F G H I J K L M 
+   --------------------------
+0 | w w w w w w w w w w w w w 
+1 | w . . . w . . . . . . . w 
+2 | w w w . w . w . w w w . w 
+3 | w . w . w . w . . . w . w 
+4 | w . w . w w w w w . w . w 
+5 | w A o o o o o o o X w . w 
+6 | w w w w w w w w w w w w w 
+======================================================================
+
+
+======================================================================
+GRID CON H ACTUAL 
+
+     A    B    C    D    E    F    G    H    I    J    K    L    M    
+   -----------------------------------------------------------------
+0 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+1 | www  12.0 11.0 10.0 www  8.0  7.0  6.0  7.0  8.0  9.0  10.0 www  
+2 | www  www  www  9.0  www  9.0  www  5.0  www  www  www  11.0 www  
+3 | www  10.0 www  8.0  www  10.0 www  4.0  3.0  2.0  www  12.0 www  
+4 | www  9.0  www  7.0  www  www  www  www  www  1.0  www  13.0 www  
+5 | www  8.0  7.0  6.0  5.0  4.0  3.0  2.0  1.0  0.0  www  14.0 www  
+6 | www  www  www  www  www  www  www  www  www  www  www  www  www  
+======================================================================
+

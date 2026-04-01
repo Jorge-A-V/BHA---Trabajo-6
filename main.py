@@ -7,12 +7,13 @@ from algoritmos.lrta import LRTA
 if __name__ == "__main__":
     grid_rta = grid()
     
-    print("GRID ORIGINAL CON DISTANCIAS \n")
+    print("GRID ORIGINAL CON DISTANCIAS")
     grid_rta.imprimir_grid_h()
 
     rta = RTA(grid_rta)
     rta.run()
 
+    print("DATOS EJERCICIO 1 (RTA)")
     rta.imprimir_historial()
     rta.imprimir_historial_latex()
     rta.imprimir_traza()
@@ -25,7 +26,7 @@ if __name__ == "__main__":
         grid_rta.cambiar_inicio_sin_cargar_dist(idx)
         rta = RTA(grid_rta)
         rta.run()
-        print(f"\nEJECUCCIÓN {idx}\n")
+        print(f"\nEJECUCCIÓN {idx+1}\n")
         grid_rta.imprimir_grid_camino(rta.traza)
 
     grid_rta.imprimir_grid_h()
@@ -34,6 +35,7 @@ if __name__ == "__main__":
     lrta = LRTA(grid_lrta)
     lrta.run()
 
+    print("DATOS EJERCICIO 2 (LRTA)")
     lrta.imprimir_historial()
     lrta.imprimir_historial_latex()
     lrta.imprimir_traza()
@@ -46,7 +48,7 @@ if __name__ == "__main__":
         grid_lrta.cambiar_inicio_sin_cargar_dist(idx)
         lrta = LRTA(grid_lrta)
         lrta.run()
-        print(f"\nEJECUCCIÓN {idx}\n")
+        print(f"\nEJECUCCIÓN {idx+1}\n")
         grid_lrta.imprimir_grid_camino(lrta.traza)
 
     grid_lrta.imprimir_grid_h()
