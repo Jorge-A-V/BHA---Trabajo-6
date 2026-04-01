@@ -21,9 +21,17 @@ class LRTA(RTA):
         nueva_h = max(fn_min, self.grid.h(id_nodo_actual))
 
         self.grid.actualizar(id_nodo_actual, nueva_h)
-        self.gn += 1
+        
         self.traza.append(id_nodo_actual)
 
         siguiente_nodo = vecino_id_min
+
+        self.actualizar_historial(
+            gn_actual = self.gn, nodo_actual = id_nodo_actual,
+            h_nuevo = fn_min, siguiente_nodo = siguiente_nodo, 
+            f_siguiente = fns[pos_vecino_min]
+        )
+
+        self.gn += 1
 
         return siguiente_nodo
