@@ -193,6 +193,6 @@ class grid:
                         h_val = self.grid[letra_id]["h"]
                         fila_str += f"{h_val:<4.1f} "
                     else:
-                        fila_str += "www  " # Es una pared
+                        fila_str += "www  " # pared
                 print(fila_str)
             print("="*70 + "\n")
