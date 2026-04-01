@@ -13,6 +13,11 @@ class RTA:
     def run(self):
         nodo = self.grid.inicio
 
+        if self.grid.es_solucion(nodo):
+            # ya estamos (edge case)
+            self.nodo_final = nodo
+            return
+
         while nodo:
             nodo = self.step(nodo)
             if self.grid.es_solucion(nodo):
