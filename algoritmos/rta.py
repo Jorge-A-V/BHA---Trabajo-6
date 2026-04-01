@@ -95,6 +95,7 @@ class RTA:
 
     def imprimir_historial_latex(self):
         """Para copiar mas facil al informe"""
+        print("\n" + "="*70)
         print("\\begin{table}[h!]")
         print("\\centering")
         print("\\begin{tabular}{|c|c|c|c|c|}")
@@ -106,3 +107,19 @@ class RTA:
         print("\\caption{Traza de ejecución del algoritmo RTA*}")
         print("\\label{tab:traza_rta}")
         print("\\end{table}")
+        print("="*70 + "\n")
+
+    def imprimir_traza(self):
+            if not self.traza:
+                print("No hay traza")
+                return
+
+            camino = " -> ".join(self.traza)
+            if self.nodo_final:
+                camino += f" -> {self.nodo_final} (META)"
+                
+            print("\n" + "="*70)
+            print("CAMINO SEGUIDO (TRAZA)")
+            print(camino)
+            print(f"Total de pasos dados: {len(self.traza)}")
+            print("="*70 + "\n")
