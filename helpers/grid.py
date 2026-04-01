@@ -196,3 +196,31 @@ class grid:
                         fila_str += "www  " # pared
                 print(fila_str)
             print("="*70 + "\n")
+
+    def imprimir_grid_camino(self, traza):
+            """
+            A = Inicio, X = bjetivo, o = Cmino recorrido, w = pared, . = libre
+            """
+            print("\n" + "="*70)
+            print("CAMINO")
+            
+            print("     " + "".join([f"{l:<2}" for l in letras]))
+            print("   " + "-" * (2 * len(letras)))
+            
+            for num in numeros:
+                fila_str = f"{num} | "
+                for letra in letras:
+                    letra_id = num + letra
+                    
+                    if letra_id == self.inicio:
+                        fila_str += "A "
+                    elif letra_id == self.objetivo:
+                        fila_str += "X "
+                    elif letra_id in traza:
+                        fila_str += "o "  # camino
+                    elif letra_id in self.grid:
+                        fila_str += ". "  # libre no visitada
+                    else:
+                        fila_str += "w "  # pare
+                print(fila_str)
+            print("="*70 + "\n")

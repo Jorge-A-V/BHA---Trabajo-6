@@ -17,6 +17,8 @@ if __name__ == "__main__":
 
     grid_rta.imprimir_grid_h()
 
+    grid_rta.imprimir_grid_camino(rta.traza)
+
 
 def fuera():
     for idx, posicion_inicial_extra in enumerate(posiciones_iniciales_extra):
