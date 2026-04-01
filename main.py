@@ -11,6 +11,10 @@ if __name__ == "__main__":
     rta = RTA(grid_rta)
     rta.run()
 
+    rta.imprimir_historial()
+
+
+def fuera():
     for idx, posicion_inicial_extra in enumerate(posiciones_iniciales_extra):
         grid_rta.cambiar_inicio_sin_cargar_dist(idx)
         rta = RTA(grid_rta)
