@@ -174,3 +174,25 @@ class grid:
 
     def es_solucion(self, letra_id):
         return self.valor(letra_id) == SOLUCION
+
+    def imprimir_grid_h(self):
+            """Imprime el grid con los H"""
+            
+            print("\n" + "="*70)
+            print("GRID CON H ACTUAL \n")
+            
+            print("     " + "".join([f"{l:<5}" for l in letras]))
+            print("   " + "-" * (5 * len(letras)))
+            
+            for num in numeros:
+                fila_str = f"{num} | "
+                for letra in letras:
+                    letra_id = num + letra
+                    
+                    if letra_id in self.grid:
+                        h_val = self.grid[letra_id]["h"]
+                        fila_str += f"{h_val:<4.1f} "
+                    else:
+                        fila_str += "www  " # Es una pared
+                print(fila_str)
+            print("="*70 + "\n")
