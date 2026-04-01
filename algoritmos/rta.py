@@ -92,3 +92,17 @@ class RTA:
         for h in self.historial_para_imprimir:
             print(f"{h['gn']:<3}    | {str(h['nodo_actual']):<12} | {h['h_nueva']:<8.2f} | {str(h['siguiente_nodo']):<12} | {h['f_siguiente']:.2f}")
         print("="*70 + "\n")
+
+    def imprimir_historial_latex(self):
+        """Para copiar mas facil al informe"""
+        print("\\begin{table}[h!]")
+        print("\\centering")
+        print("\\begin{tabular}{|c|c|c|c|c|}")
+        print("\\hline")
+        print("\\textbf{Paso} & \\textbf{Nodo Actual} & \\textbf{H Nuevo} & \\textbf{Sig. Nodo} & \\textbf{F Sig.} \\\\ \\hline")
+        for h in self.historial_para_imprimir:
+            print(f"{h['gn']} & {h['nodo_actual']} & {h['h_nueva']:.2f} & {h['siguiente_nodo']} & {h['f_siguiente']:.2f} \\\\ \\hline")
+        print("\\end{tabular}")
+        print("\\caption{Traza de ejecución del algoritmo RTA*}")
+        print("\\label{tab:traza_rta}")
+        print("\\end{table}")

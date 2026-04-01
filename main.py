@@ -12,6 +12,7 @@ if __name__ == "__main__":
     rta.run()
 
     rta.imprimir_historial()
+    rta.imprimir_historial_latex()
 
 
 def fuera():
